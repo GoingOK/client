@@ -1,0 +1,16 @@
+.footer-pad {
+  padding-bottom: 100px;
+}
+#reflection-box {
+  height: 400px;
+  overflow: scroll;
+}
+
+.header-button {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: center;
+  line-height: 100%;
+}

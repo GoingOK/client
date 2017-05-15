@@ -1,0 +1,38 @@
+
+<!--<div>Reflection Entries: {{ getReflections() }}</div>-->
+<div id="reflection-list" class="panel panel-success">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <span class="glyphicon glyphicon-th-list"></span>&nbsp;<b>Past Reflections</b>
+      <span class="header-button glyphicon glyphicon-question-sign pull-right btn btn-default" popover="{{helptext}}" placement="left"></span>
+    </div>
+  </div>
+    <!--<span class="pull-right">-->
+    <!--<a href="/profile/records/csv"><span class="header-button glyphicon glyphicon-download btn btn-default"></span></a>-->
+    	<!--<span id="reflectionListHelp" class="header-button glyphicon glyphicon-question-sign btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="This is some help text"></span></span>-->
+
+  <div class="panel-body">
+    <div id="reflection-box">
+      <div *ngIf='dataLoaded()'>
+        <!--<div>Records: {{records}}</div>-->
+        <div *ngFor="let entry of getReflections()">
+          <!--<div>Record: {{record}}</div>-->
+          <span class="badge">{{entry.reflection.point}}</span> &nbsp;&nbsp;<b>{{entry.timestamp | date:'dd MMM yyyy'}}</b>&nbsp;&nbsp;<span>{{entry.reflection.text}}</span>
+          <hr />
+        </div>
+      </div>
+
+      <!--<div th:each="record : ${myRecords}">-->
+
+      <!--<div>-->
+      <!--<b th:text="${#calendars.format(record.recordDate,'dd MMMM yyyy')}">issue date</b>&nbsp;<span class="badge" th:text="${record.pointCode}"></span>&nbsp;<span th:text="${record.trackNarrative}">reflection</span>-->
+      <!--<hr/>-->
+      <!--</div>-->
+      <!--</div>-->
+
+    </div>
+    <div class="text-center"><span class="glyphicon glyphicon-chevron-down"></span></div>
+
+  </div>
+</div>
+<div class="footer-pad">&nbsp;</div>
