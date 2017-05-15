@@ -1,0 +1,22 @@
+.navbar-nav > li > a, .navbar-brand {
+  padding-top:5px !important; padding-bottom:0 !important;
+  height: 38px;
+}
+.navbar {min-height:38px !important;}
+
+#logo {
+  height: 40px;
+  vertical-align: top;
+}
+
+.navbar-nav li a {
+  color: #0f856b;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 6px;
+  vertical-align: bottom;
+}
+
+.navbar-nav li a:hover {
+  color: #ffffff;
+}

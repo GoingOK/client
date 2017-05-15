@@ -1,0 +1,25 @@
+.panel-body dt {
+  width:35%;
+  padding-right: 5px;
+  /* margin-left:auto; */
+  /* display:inline-block; */
+}
+.panel-body dd {
+  width:65%;
+  margin-left:auto;
+  padding-bottom: 10px;
+  /* display:inline-block; */
+}
+
+#savetick {
+  color: #00BB00;
+}
+
+.header-button {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: center;
+  line-height: 100%;
+}

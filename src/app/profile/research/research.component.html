@@ -1,0 +1,33 @@
+<div id="research-content" class="panel panel-warning">
+  <div class="panel-heading">
+    <div class="panel-title"><span class="glyphicon glyphicon-education"></span>&nbsp;<b>GoingOK Research</b><span class="header-button glyphicon glyphicon-question-sign pull-right btn btn-default" popover="{{helptext}}" placement="left"></span></div>
+  </div>
+  <div class="panel-body">
+    <p class="small">If you are participating in a GoingOK research project, please ensure the settings below are accurate. Note, if you are not participating, the research code will show as: NON-NON-NON</p>
+
+    <dl class="dl-horizontal left">
+      <dt>Code:</dt>
+      <dd>{{research.project.code + "-" + research.organisation.code + "-" + research.cohort.code}}&nbsp;<span id="savetick" *ngIf="saved" class="glyphicon glyphicon-ok"></span></dd>
+      <dt>Project:</dt>
+      <dd><select class="form-control"  [(ngModel)]="research.project" (ngModelChange)="setUnsaved()">
+        <option *ngFor="let p of researchChoices.projects" [ngValue]="p" [selected]="(p.code==research.project.code)"> {{p.name}} </option>
+      </select></dd>
+      <dt>Organisation:</dt>
+      <dd>
+        <select class="form-control" [(ngModel)]="research.organisation" [disabled]="(research.project.name=='None')" (ngModelChange)="setUnsaved()">
+          <option *ngFor="let o of researchChoices.organisations" [ngValue]="o" [selected]="(o.code==research.organisation.code)"> {{o.name}} </option>
+        </select>
+      </dd>
+      <dt>Cohort:</dt>
+      <dd>
+        <select class="form-control" [(ngModel)]="research.cohort" [disabled]="(research.organisation.name=='None')" (ngModelChange)="setUnsaved()">
+          <option *ngFor="let c of researchChoices.cohorts" [ngValue]="c" [selected]="(c.code==research.cohort.code)" > {{c.name}} </option>
+        </select>
+      </dd>
+      <dt><div class="form-check"> <input type="checkbox" class="form-check-input" [(ngModel)]="research.consent" (change)="setUnsaved()"></div></dt>
+      <dd>I consent to my deidentified data being used for ongoing research.</dd>
+      <dt>&nbsp;</dt>
+      <dd><button class="btn btn-sm btn-default" (click)="saveResearchChoice()">Save</button></dd>
+    </dl>
+  </div>
+</div><!-- research -->
