@@ -1,0 +1,50 @@
+<div id="devmode-content" *ngIf="DEVELOPER_MODE"  class="row-fluid">
+  <div class = "col-sm-12">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h5 class="panel-title"><span class="glyphicon glyphicon-tasks"></span> Dev Info</h5></div>
+      <div id="devPanel" class="panel-body small">
+
+        <div class="alert-info"><p><button (click)="updateProfile()"> update profile </button> <button (click)="updateReflections()"> update reflections </button><button (click)="loadDummy()"> dummy reflections </button><button (click)="toggleSignIn()"> signIn </button> <button (click)="toggleAuthorised()"> authorised </button> </p>
+        </div>
+
+        <div>
+          <table class="table table-responsive table-striped">
+            <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>AuthInfo</td>
+              <td>{{getAuthInfoAsString()}}</td>
+            </tr>
+            <tr>
+              <td>Current Entry</td>
+              <td>{{(getCurrentEntryAsString()|async)}}</td>
+            </tr>
+            <tr>
+              <td>Research Choice</td>
+              <td>{{(getResearchChoiceAsString())}}</td>
+            </tr>
+            <tr>
+              <td>User</td>
+              <td>{{(getUserAsString()|async)}}</td>
+            </tr>
+            <tr>
+              <td>Profile</td>
+              <td>{{(getProfileAsString()|async)}}</td>
+            </tr>
+            <tr>
+              <td>Reflections</td>
+              <td>{{(getReflectionsAsString()|async)}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="text-center"><span class="glyphicon glyphicon-chevron-down"></span></div>
+    </div>
+  </div>
+</div>
