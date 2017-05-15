@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {APP_BASE_HREF} from "@angular/common";
 //Routing and services
 import { ROUTING } from './app.routes';
 import {AuthenticationService,AuthGuard,UserService,ProfileService} from './services';
@@ -28,6 +29,9 @@ import {PageNotFoundComponent} from "./error/pageNotFound/pageNotFound.component
 //Bootstrap and UI
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { PopoverModule } from 'ngx-bootstrap';
+
+import { DevComponent } from './dev/dev.component';
+
 //DevTools
 //import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -36,7 +40,8 @@ import { PopoverModule } from 'ngx-bootstrap';
     AppComponent,
     NavbarComponent, HomeComponent, HelpComponent, AboutComponent, T2tComponent,
     ProfileComponent,MessagesComponent,ReflectionChartComponent, EntryComponent, SliderComponent, ReflectionsComponent,ResearchComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DevComponent
   ],
   imports: [
     ROUTING,
@@ -48,6 +53,7 @@ import { PopoverModule } from 'ngx-bootstrap';
     // }),
   ],
   providers: [
+    {provide: APP_BASE_HREF, useValue : '/' },
       AuthenticationService, AuthGuard, UserService,ProfileService,
       STORE_ACTIONS
   ],

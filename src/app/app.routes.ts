@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import {PageNotFoundComponent} from "./error/pageNotFound/pageNotFound.component";
 import {AuthGuard} from "./services";
+import {RouterTestingModule} from "@angular/router/testing";
 //import {LoginComponent} from "./login/login.component";
 //
 
@@ -29,3 +30,13 @@ const routes: Routes = [
 
 // - Updated Export
 export const ROUTING = RouterModule.forRoot(routes);
+export const ROUTING_TEST = RouterTestingModule.withRoutes(routes)
+
+export const ROUTING_TEST_COMPONENTS = [
+    ProfileComponent,
+    T2tComponent,
+    AboutComponent,
+    HelpComponent,
+    HomeComponent,
+    PageNotFoundComponent
+]
