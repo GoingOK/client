@@ -8,7 +8,7 @@ This repo is a javascript client based on Angular and ngrx that calls the REST A
 
 ### Quick Start
 
-The client can be run without the server backend, but (currently) lacks the core functionality of the profile page. It is written using [angular-cli](), so to get it started, follow these steps...
+The client can be run without the server backend, but (currently) lacks the core functionality of the profile page. It is written using [angular-cli](https://cli.angular.io), so to get it started, follow these steps...
 
 1. Ensure that you have ```node```, ```npm``` installed
 
@@ -17,6 +17,7 @@ The client can be run without the server backend, but (currently) lacks the core
 3. Now run the application locally using the angular-cli: ```ng serve```
 
 4. You should be able to connect by browsing to ```http://localhost:4200```
+
 
 ### Documentation
 
