@@ -30,7 +30,11 @@ export class EntryComponent {
     public saveEntry() {
             //console.log("Setting the text to: " + this.reflectText);
             let ref = new Reflection();
-            ref.point = this.sliderValue*100;
+            if(this.sliderValue === undefined) {
+                ref.point = 50
+            } else {
+                ref.point = this.sliderValue*100;
+            }
             ref.text = this.reflectText;
             this.notify.emit(ref);
             this.reflectText = "";
