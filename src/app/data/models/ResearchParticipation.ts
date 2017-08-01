@@ -43,7 +43,8 @@ export class ResearchChoices {
         let projectList = [
             {name: "None", code: "NON"},
             {name: "Transition to Teaching", code: "T2T"},
-            {name: "Quotidian Quality", code: "QQA"}
+            {name: "Quotidian Quality", code: "QQA"},
+            {name: "inSITE: Inclusive Education", code: "IIE"}
         ];
 
         let organisationList = [
