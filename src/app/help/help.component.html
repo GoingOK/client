@@ -47,7 +47,15 @@
 
       <div *ngIf="other_info">
         <h4>Sharing your thoughts</h4>
-        <p>At times it may be beneficial for you to share a part of your journey with someone who is helping you. If this is the case, GoingOK may also provide you with the opportunity to share one or more of your reflections with a trusted friend or mentor. You will always be in control of this process, and may elect to start or stop it when you want. GoingOK by default does not enable any sharing of any reflections, so sharing with a trusted friend will only occur if you specifically set it up in your account.</p></div>
+        <p>At times it may be beneficial for you to share a part of your journey with someone who is helping you. If this is the case, GoingOK may also provide you with the opportunity to share one or more of your reflections with a trusted friend or mentor. You will always be in control of this process, and may elect to start or stop it when you want. GoingOK by default does not enable any sharing of any reflections, so sharing with a trusted friend will only occur if you specifically set it up in your account.</p>
+
+        <h4>Tech Details</h4>
+        <p>Client version: {{clientVersion}}</p>
+        <p>Server version: {{(serverInfo|async)?.version}}</p>
+        <p>Server name: {{(serverInfo|async)?.name}}</p>
+        <p>Server build: {{(serverInfo|async)?.buildTime}}</p>
+
+      </div>
 
 
   </div>

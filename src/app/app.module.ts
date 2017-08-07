@@ -31,6 +31,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 import { PopoverModule } from 'ngx-bootstrap';
 
 import { DevComponent } from './dev/dev.component';
+import {InfoService} from "./services/info.service";
 
 //DevTools
 //import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -54,7 +55,7 @@ import { DevComponent } from './dev/dev.component';
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue : '/' },
-      AuthenticationService, AuthGuard, UserService,ProfileService,
+      AuthenticationService, AuthGuard, UserService,ProfileService,InfoService,
       STORE_ACTIONS
   ],
   bootstrap: [AppComponent]

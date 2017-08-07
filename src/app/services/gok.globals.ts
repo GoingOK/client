@@ -4,8 +4,10 @@
 
 export namespace Gok {
     //URLs
-    export const API_URL = 'http://api.goingok.org/v1';
+    //export const API_URL = 'http://api.goingok.org/v1';
+    export const API_URL='http://35.189.36.126:8080/v1';
     //export const API_URL = 'http://localhost:8080/v1';
+    export const VERSION_URL = API_URL + '/admin/version';
     export const USER_URL = API_URL + '/user';
     export const AUTH_URL = API_URL + '/client/auth';
     export const PROFILE_URL = API_URL + '/client/profile';
