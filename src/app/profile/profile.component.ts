@@ -4,16 +4,16 @@
 
 import {AfterViewInit, ChangeDetectorRef, Component} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {BehaviorSubject, Observable} from "rxjs";
+import {Observable} from "rxjs";
 
 import {EntryComponent} from './entry/entry.component';
 import {ReflectionChartComponent} from './reflectionChart/reflectionChart.component';
 
 import {AppState} from "../store/reducers";
-import {ProfileActions, UserActions} from "../store/actions";
 
 import {User,Reflection, ReflectionEntry, Profile,ResearchChoice,ResearchChoices} from "../data/models";
 import {AuthenticationService} from "../services/authentication.service";
+import {GetProfile, SaveReflection, SaveResearch} from "../store/actions/profile.actions";
 
 
 
@@ -32,8 +32,6 @@ export class ProfileComponent implements AfterViewInit {
 
     constructor(
         private store: Store<AppState>,
-        private userActions: UserActions,
-        private profileActions: ProfileActions,
         private authService: AuthenticationService,
         private cdr: ChangeDetectorRef
     ) {
@@ -51,7 +49,7 @@ export class ProfileComponent implements AfterViewInit {
 
     public getProfile() {
         //console.info("Getting profile...")
-        this.store.dispatch(this.profileActions.getProfile());
+        this.store.dispatch(new GetProfile());
     }
 
     public getMessages() {
@@ -84,12 +82,12 @@ export class ProfileComponent implements AfterViewInit {
         let entry = new ReflectionEntry();
         entry.reflection = ref;
         //console.log("Notify message: "+JSON.stringify(entry));
-        this.store.dispatch(this.profileActions.saveReflection(entry));
+        this.store.dispatch(new SaveReflection(entry));
     }
 
     newResearch(rc:ResearchChoice):void {
         //console.log("Notify message: "+JSON.stringify(rc));
-        this.store.dispatch(this.profileActions.saveResearch(rc));
+        this.store.dispatch(new SaveResearch(rc));
     }
 
 

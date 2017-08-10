@@ -4,8 +4,7 @@
 
 import {Component} from '@angular/core';
 import {InfoService} from "../services/info.service";
-import {ServerInfo} from "../data/models/ServerInfo";
-import {Observable} from "rxjs/Observable";
+
 
 const { version: appVersion } = require('../../../package.json')
 

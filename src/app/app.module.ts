@@ -9,7 +9,7 @@ import { ROUTING } from './app.routes';
 import {AuthenticationService,AuthGuard,UserService,ProfileService} from './services';
 //ngrx
 import {STORE} from "./store/reducers/";
-import {STORE_ACTIONS} from "./store/actions/";
+//import {STORE_ACTIONS} from "./store/actions/";
 import {STORE_EFFECTS} from "./store/effects/";
 //Components
 import { AppComponent } from './app.component';
@@ -49,14 +49,11 @@ import {InfoService} from "./services/info.service";
     BrowserModule, FormsModule, HttpModule,
     STORE, STORE_EFFECTS,
     BsDropdownModule.forRoot(), PopoverModule.forRoot()
-    // StoreDevtoolsModule.instrumentOnlyWithExtension({
-    //   maxAge: 5
-    // }),
+    // !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : []
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue : '/' },
-      AuthenticationService, AuthGuard, UserService,ProfileService,InfoService,
-      STORE_ACTIONS
+      AuthenticationService, AuthGuard, UserService,ProfileService,InfoService
   ],
   bootstrap: [AppComponent]
 })

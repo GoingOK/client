@@ -16,7 +16,7 @@ import {ReflectionEntry} from "../../data/models/Reflections"; //curveLinear, cu
 })
 export class ReflectionChartComponent {
 
-    @Input() reflections: ReflectionEntry[];
+    @Input() reflections: ReflectionEntry[] = [];
 
     helptext = "This chart displays a record of your reflection points over time. The purple dots are the actual points that you record with each reflection, and these are connected by straight light blue lines. The red line is a smoothed version of how you've gone over time. It is meant to reflect the general ups and downs without necessarily displaying every point. The light yellow line indicates an 'average' of all of your reflection points. For more detail on each reflection, see the reflection list at the bottom of the page."
 //     chartdata = [

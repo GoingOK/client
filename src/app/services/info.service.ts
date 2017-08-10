@@ -35,9 +35,6 @@ export class InfoService {
         alert("There was a problem connected to the server. Could not get info from server.");
         if(err instanceof Response) {
             return Observable.throw(err.json().error || 'backend server error');
-            // if you're using lite-server, use the following line
-            // instead of the line above:
-            //return Observable.throw(err.text() || 'backend server error');
         }
         return Observable.throw(err || 'backend server error');
     }

@@ -2,20 +2,20 @@
  * Created by andrew on 29/3/17.
  */
 
-import {UserActions} from './user.actions';
-import {GoogleProfileActions} from './googleProfile.actions';
-import {ProfileActions} from "./profile.actions";
-
-//For convenient imports
-export {
-    UserActions,
-    ProfileActions,
-    GoogleProfileActions
-};
+// import {UserAction} from './user.actions';
+// import {GoogleProfileAction} from './googleProfile.actions';
+// import {ProfileAction} from "./profile.actions";
+//
+// //For convenient imports
+// export {
+//     UserActions,
+//     ProfileActions,
+//     GoogleProfileActions
+// };
 
 //Used by app.module
-export const STORE_ACTIONS = [
-    UserActions,
-    ProfileActions,
-    GoogleProfileActions
-];
+// export const STORE_ACTIONS = [
+//     UserAction,
+//     ProfileAction,
+//     GoogleProfileAction
+// ];

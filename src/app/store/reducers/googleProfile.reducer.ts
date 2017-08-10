@@ -4,25 +4,26 @@
 
 
 import {GoogleProfile} from "../../data/models/GoogleProfile";
-import {Action} from "@ngrx/store";
-import {GoogleProfileActions} from "../actions";
+import {
+    GET_GOOGLE_PROFILE, GoogleProfileAction, RESET_GOOGLE_PROFILE,
+    SAVE_GOOGLE_PROFILE
+} from "../actions/googleProfile.actions";
 
 export type GoogleProfileState = GoogleProfile;
 
 const initialState: GoogleProfileState = new GoogleProfile();
 
-export function reducer(state = initialState, action: Action): GoogleProfileState {
+export function reducer(state :GoogleProfileState = initialState, action: GoogleProfileAction): GoogleProfileState {
     switch (action.type) {
-        case GoogleProfileActions.RESET_PROFILE: {
+        case RESET_GOOGLE_PROFILE: {
             return initialState;
         }
-        case GoogleProfileActions.GET_PROFILE: {
+        case GET_GOOGLE_PROFILE: {
             return state;
         }
-        case GoogleProfileActions.SAVE_PROFILE: {
+        case SAVE_GOOGLE_PROFILE: {
             //console.log("GoogleProfile: "+JSON.stringify(action.payload))
-            state = action.payload;
-            return state;
+            return action.payload;
         }
         default: {
             return state;
