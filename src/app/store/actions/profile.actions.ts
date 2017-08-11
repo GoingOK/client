@@ -3,75 +3,62 @@
  * Created by andrew on 3/4/17.
  */
 
-import {Injectable} from "@angular/core";
 import {Action} from "@ngrx/store";
 import {Profile,ReflectionEntry,ResearchChoice} from "../../data/models/";
 
 
+export const GET_PROFILE = '[Profile] Get Profile';
+export const GET_PROFILE_SUCCESS = '[Profile] Get Profile Success';
+export const SAVE_REFLECTION = '[Profile] Save Reflection';
+export const SAVE_REFLECTION_RESULT = '[Profile] Save Reflection Result';
+export const SAVE_RESEARCH = '[Profile] Save Research';
+export const SAVE_RESEARCH_RESULT = '[Profile] Save Research Result';
+export const RESET_PROFILE = '[Profile] Reset Profile';
+export const LOAD_DUMMY_PROFILE = '[Profile] Load Dummy';
 
-@Injectable()
-export class ProfileActions {
-
-    static GET_PROFILE = '[Profile] Get Profile';
-    static GET_PROFILE_SUCCESS = '[Profile] Get Profile Success';
-    static SAVE_REFLECTION = '[Profile] Save Reflection';
-    static SAVE_REFLECTION_RESULT = '[Profile] Save Reflection Result';
-    static SAVE_RESEARCH = '[Profile] Save Research';
-    static SAVE_RESEARCH_RESULT = '[Profile] Save Research Result';
-    static RESET_PROFILE = '[Profile] Reset Profile';
-    static LOAD_DUMMY = '[Profile] Load Dummy';
-
-
-    getProfile(): Action {
-        return {
-            type: ProfileActions.GET_PROFILE
-        };
-    }
-
-
-    getProfileSuccess(profile:Profile): Action {
-        return {
-            type: ProfileActions.GET_PROFILE_SUCCESS,
-            payload: profile
-        };
-    }
-
-    saveReflection(ref:ReflectionEntry): Action {
-        return {
-            type: ProfileActions.SAVE_REFLECTION,
-            payload: ref
-        };
-    }
-
-    saveReflectionResult(result): Action {
-        return {
-            type: ProfileActions.SAVE_REFLECTION_RESULT,
-            payload: result
-        };
-    }
-    saveResearch(research:ResearchChoice): Action {
-        return {
-            type: ProfileActions.SAVE_RESEARCH,
-            payload: research
-        };
-    }
-
-    saveResearchResult(result): Action {
-        return {
-            type: ProfileActions.SAVE_RESEARCH_RESULT,
-            payload: result
-        };
-    }
-
-    resetProfile(): Action {
-        return {
-            type: ProfileActions.RESET_PROFILE
-        };
-    }
-
-    loadDummy(): Action {
-        return {
-            type: ProfileActions.LOAD_DUMMY
-        };
-    }
+export class GetProfile implements Action {
+    readonly type = GET_PROFILE;
 }
+
+export class GetProfileSuccess implements Action {
+    readonly type = GET_PROFILE_SUCCESS;
+    constructor(public payload: Profile) {}
+}
+
+export class SaveReflection implements Action {
+    readonly type = SAVE_REFLECTION;
+    constructor(public payload: ReflectionEntry) {}
+}
+
+export class SaveReflectionResult implements Action {
+    readonly type = SAVE_REFLECTION_RESULT;
+    constructor(public payload: string) {}
+}
+
+export class SaveResearch implements Action {
+    readonly type = SAVE_RESEARCH;
+    constructor(public payload: ResearchChoice) {}
+}
+
+export class SaveResearchResult implements Action {
+    readonly type = SAVE_RESEARCH_RESULT;
+    constructor(public payload: string) {}
+}
+
+export class ResetProfile implements Action {
+    readonly type = RESET_PROFILE;
+}
+
+export class LoadDummyProfile implements Action {
+    readonly type = LOAD_DUMMY_PROFILE;
+}
+
+export type ProfileAction =
+    | GetProfile
+    | GetProfileSuccess
+    | SaveReflection
+    | SaveReflectionResult
+    | SaveResearch
+    | SaveResearchResult
+    | ResetProfile
+    | LoadDummyProfile;

@@ -2,32 +2,28 @@
  * Created by andrew on 29/3/17.
  */
 
-import {Injectable} from '@angular/core';
 import {Action} from '@ngrx/store';
-
-@Injectable()
-export class GoogleProfileActions {
-    static GET_PROFILE = '[GoogleProfile] Get Profile';
-    static SAVE_PROFILE = '[GoogleProfile] Save Profile';
-    static RESET_PROFILE = '[GoogleProfile] Reset Profile';
-
-    getProfile(): Action {
-        return {
-            type: GoogleProfileActions.GET_PROFILE
-        };
-    }
+import {GoogleProfile} from "../../data/models/GoogleProfile";
 
 
-    saveProfile(profile): Action {
-        return {
-            type: GoogleProfileActions.SAVE_PROFILE,
-            payload: profile
-        };
-    }
+export const GET_GOOGLE_PROFILE = '[GoogleProfile] Get Profile';
+export const SAVE_GOOGLE_PROFILE = '[GoogleProfile] Save Profile';
+export const RESET_GOOGLE_PROFILE = '[GoogleProfile] Reset Profile';
 
-    resetProfile(): Action {
-        return {
-            type: GoogleProfileActions.RESET_PROFILE
-        };
-    }
+export class GetGoogleProfile implements Action {
+    readonly type = GET_GOOGLE_PROFILE;
 }
+
+export class SaveGoogleProfile implements Action {
+    readonly type = SAVE_GOOGLE_PROFILE;
+    constructor(public payload: GoogleProfile) {}
+}
+
+export class ResetGoogleProfile implements Action {
+    readonly type = RESET_GOOGLE_PROFILE;
+}
+
+export type GoogleProfileAction =
+    | GetGoogleProfile
+    | SaveGoogleProfile
+    | ResetGoogleProfile

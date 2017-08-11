@@ -2,15 +2,15 @@
  * Created by andrew on 31/3/17.
  */
 
-import {ApplicationRef, ChangeDetectorRef, Injectable, NgZone} from "@angular/core";
+import {Injectable, NgZone} from "@angular/core";
 import {Store} from "@ngrx/store";
 import {AppState} from "../store/reducers";
 import {GoogleProfile,User} from "../data/models";
-import {GoogleProfileActions,UserActions} from "../store/actions";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
-import {main} from "@angular/compiler-cli/src/main";
 import {Profile} from "../data/models/Profile";
+import {AuthUser} from "../store/actions/user.actions";
+import {SaveGoogleProfile} from "../store/actions/googleProfile.actions";
 
 declare var gapi: any;
 
@@ -31,8 +31,6 @@ export class AuthenticationService {
 
     constructor(
         private store: Store<AppState>,
-        private gpActions: GoogleProfileActions,
-        private uActions:UserActions,
         private router: Router,
         private _ngZone: NgZone
     ) {
@@ -88,7 +86,7 @@ export class AuthenticationService {
 
     public goingOkAuthorisation = () => {
         //console.log("<<<< GOINGOK AUTH >>>>");
-        this.store.dispatch(this.uActions.authUser(this.authInfo.gToken));
+        this.store.dispatch(new AuthUser(this.authInfo.gToken));
         this.authInfo.authorised = true;
         //console.debug("Authorised: ",this.authInfo.authorised)
         this.pStore.subscribe(this.changeToProfilePage);
@@ -96,7 +94,7 @@ export class AuthenticationService {
     }
 
     private changeToProfilePage = () => {
-        setTimeout(this.goToProfile, 300);
+        setTimeout(this.goToProfile, 2000);
     }
 
     private goToProfile = () => {
@@ -126,7 +124,7 @@ export class AuthenticationService {
         gp.name = profile.getName();
         gp.email = profile.getEmail();
         gp.image_url = profile.getImageUrl();
-        this.store.dispatch(this.gpActions.saveProfile(gp));
+        this.store.dispatch(new SaveGoogleProfile(gp));
     }
 
 

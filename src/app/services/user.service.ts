@@ -5,10 +5,11 @@
 import { Injectable }     from '@angular/core';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-import {User, UserResponse} from "../data/models";
+import {UserResponse} from "../data/models";
 import {Gok} from './gok.globals';
 import {AuthenticationService} from "./authentication.service";
-
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class UserService {
@@ -17,28 +18,30 @@ export class UserService {
 
     authUser(token): Observable<UserResponse> {
         //console.log("Authorising user with token: "+token);
-        let response =  this.http.post(Gok.AUTH_URL,token);
-        //response.map(res => console.log("SERVER RESPONSE: "+res.json()));
-        let usrResp = response.map(this.sessionAndUser);
-            //.catch(this._serverError);
-        return usrResp;
+        let headers = new Headers();
+        headers.append('Content-Type', 'text/plain');
+        let options = new RequestOptions({ headers: headers });
+        let response =  this.http.post(Gok.AUTH_URL,token,options);
+        return response.map(this.sessionAndUser).catch(this._serverError);
     }
 
     sessionAndUser = (response:Response): UserResponse => {
         //console.log("Extracting session and user data from response");
-        let ur:UserResponse = response.json()
-        //console.log("RESPONSE: "+JSON.stringify(ur))
-        if (response.headers.has(Gok.SET_AUTH_HEADER)) {
-            let session = response.headers.get(Gok.SET_AUTH_HEADER);
-            //console.log("Session is: " + session);
+        console.warn("SERVER RESPONSE: ",response);
+        let headers = response.headers;
+        console.warn("Headers: ",headers);
+        let ur:UserResponse = response.json();
+        console.log("RESPONSE: "+JSON.stringify(ur));
+        if (headers.has(Gok.SET_AUTH_HEADER)) {
+            let session = headers.get(Gok.SET_AUTH_HEADER);
+            //console.info("Session is: " + session);
             this.authService.authInfo.session = session;
             ur.session = session;
-        } else {
+         } else {
             console.warn("No Session provided");
         }
-
         return ur;
-    }
+    };
 
     private _serverError = function(err: any) {
         console.error('sever error:', err);  // debug

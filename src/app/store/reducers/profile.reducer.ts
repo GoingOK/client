@@ -3,30 +3,32 @@
  */
 
 
-import {Action} from "@ngrx/store";
-import {ProfileActions} from "../actions";
+import {
+    GET_PROFILE, GET_PROFILE_SUCCESS, LOAD_DUMMY_PROFILE, ProfileAction, RESET_PROFILE, SAVE_REFLECTION,
+    SAVE_REFLECTION_RESULT
+} from "../actions/profile.actions";
 import {Profile,ReflectionEntry} from "../../data/models";
 
 export type ProfileState = Profile;
 
 const initialState: ProfileState = new Profile();
 
-export function reducer(state = initialState, action: Action): ProfileState {
+export function reducer(state = initialState, action: ProfileAction): ProfileState {
     //console.debug("IN PROFILE REDUCER with action: ",action)
     switch (action.type) {
-        case ProfileActions.SAVE_REFLECTION: {
+        case SAVE_REFLECTION: {
             let ref:ReflectionEntry = action.payload;
             state.addReflectionEntry(ref);
             return state;
         }
-        case ProfileActions.SAVE_REFLECTION_RESULT: {
+        case SAVE_REFLECTION_RESULT: {
             //console.log("Result of Reflection Save: "+JSON.stringify(action.payload));
             return state;
         }
-        case ProfileActions.GET_PROFILE: {
+        case GET_PROFILE: {
             return state; //This is handled by an effect
         }
-        case ProfileActions.GET_PROFILE_SUCCESS: {
+        case GET_PROFILE_SUCCESS: {
             //console.log("SUCCESS: Result of get PRofile: "+JSON.stringify(action.payload));
             let profile = new Profile();
             profile = action.payload;
@@ -40,10 +42,10 @@ export function reducer(state = initialState, action: Action): ProfileState {
             state.research = profile.research;
             return state;
         }
-        case ProfileActions.RESET_PROFILE: {
+        case RESET_PROFILE: {
             return initialState;
         }
-        case ProfileActions.LOAD_DUMMY: {
+        case LOAD_DUMMY_PROFILE: {
             state = new Profile();
             state.dummyData();
             return state;

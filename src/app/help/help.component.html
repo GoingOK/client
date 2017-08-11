@@ -12,16 +12,7 @@
       <a class="list-group-item" [class.active]="using_info" (click)="select('using')">How to Use</a>
       <a class="list-group-item" [class.active]="other_info" (click)="select('other')">Other Info</a>
     </div>
-    <!--<div class="btn btn-default" ">General Info</div>-->
-    <!--<hr/>-->
-    <!--<div class="btn btn-default" (click)="select('privacy')">Privacy</div>-->
-    <!--<hr/>-->
-    <!--<div class="btn btn-default" (click)="select('research')">Research</div>-->
-    <!--<hr/>-->
-    <!--<div class="btn btn-default" (click)="select('using')">How to use</div>-->
-    <!--<hr/>-->
-    <!--<div class="btn btn-default" (click)="select('other')">Other</div>-->
-    <!--<hr/>-->
+
   </div>
   <div class="col-sm-8">
     <div *ngIf="general_info">
@@ -47,7 +38,15 @@
 
       <div *ngIf="other_info">
         <h4>Sharing your thoughts</h4>
-        <p>At times it may be beneficial for you to share a part of your journey with someone who is helping you. If this is the case, GoingOK may also provide you with the opportunity to share one or more of your reflections with a trusted friend or mentor. You will always be in control of this process, and may elect to start or stop it when you want. GoingOK by default does not enable any sharing of any reflections, so sharing with a trusted friend will only occur if you specifically set it up in your account.</p></div>
+        <p>At times it may be beneficial for you to share a part of your journey with someone who is helping you. If this is the case, GoingOK may also provide you with the opportunity to share one or more of your reflections with a trusted friend or mentor. You will always be in control of this process, and may elect to start or stop it when you want. GoingOK by default does not enable any sharing of any reflections, so sharing with a trusted friend will only occur if you specifically set it up in your account.</p>
+
+        <h4>Tech Details</h4>
+        <p>Client version: {{clientVersion}}</p>
+        <p>Server version: {{(serverInfo|async)?.version}}</p>
+        <p>Server name: {{(serverInfo|async)?.name}}</p>
+        <p>Server build: {{(serverInfo|async)?.buildTime}}</p>
+
+      </div>
 
 
   </div>
