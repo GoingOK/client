@@ -15,7 +15,7 @@ export class ReflectionsComponent {
 
     helptext="This section displays all of your past reflections in reverse order starting from the most recent. The number is a scale of 0 to 100 and represents your reflection point where  is distressed are lower numbers, going ok are middle numbers around 50 and soaring are higher numbers."
 
-    @Input() reflections:ReflectionEntry[];
+    @Input() reflections:ReflectionEntry[] = [];
 
     public dataLoaded() {
         return (this.reflections.length > 0)

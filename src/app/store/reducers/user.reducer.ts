@@ -4,28 +4,22 @@
 
 
 import {User,UserResponse} from "../../data/models";
-import {UserActions} from "../actions";
-import {Action} from "@ngrx/store";
+import {AUTH_USER, AUTH_USER_SUCCESS, RESET_USER, UserAction} from "../actions/user.actions";
 
 export type UserState = User;
 
 const initialState: UserState = new User();
 
 
-export function reducer(state = initialState, action: Action): UserState {
+export function reducer(state = initialState, action: UserAction): UserState {
     switch (action.type) {
-        case UserActions.AUTH_USER: {
-            //This is handled by user.effects
-            return state;
-        }
-        case UserActions.RESET_USER: {
-            return initialState;
-        }
-        case UserActions.GET_USER_SUCCESS: {
+        case AUTH_USER: { return state; } //This is handled by user.effects
+        case AUTH_USER_SUCCESS: {
             //console.log("GET_USER_SUCCESS payload: "+JSON.stringify(action.payload));
-            let response:UserResponse = action.payload
+            let response:UserResponse = action.payload;
             //console.log("Message: "+ response.message)
-            console.info("GoingOK ID: "+ response.id)
+            console.info("GoingOK ID: "+ response.id);
+            console.info("Stored session: "+response.session);
             state.id = response.id;
             //console.log("Session: "+ response.session)
             state.session = response.session;
@@ -33,9 +27,8 @@ export function reducer(state = initialState, action: Action): UserState {
             state.isAuthorised = true;
             return state;
         }
-        case UserActions.CHECK_CONNECT_RESULT: {
-            //console.log("CHECK_CONNECT_RESULT payload: "+JSON.stringify(action.payload));
-            return state;
+        case RESET_USER: {
+            return initialState;
         }
         default: {
             //console.log("Returning default state for user")

@@ -3,6 +3,10 @@
  */
 
 import {Component} from '@angular/core';
+import {InfoService} from "../services/info.service";
+
+
+const { version: appVersion } = require('../../../package.json')
 
 @Component({
     selector: 'help',
@@ -11,12 +15,20 @@ import {Component} from '@angular/core';
 })
 
 export class HelpComponent {
+
+    public clientVersion;
+    public serverInfo;
+
     general_info = true;
     privacy_info = false;
     research_info = false;
     using_info = false;
     other_info = false;
 
+    constructor(info:InfoService) {
+        this.clientVersion = appVersion;
+        this.serverInfo = info.getInfo();
+    }
 
     select(info:string) {
         //console.info("Seclected: "+info);

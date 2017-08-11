@@ -1,9 +1,8 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {AppState} from "../store/reducers/";
 import {Observable,BehaviorSubject} from "rxjs";
 import {User,Profile} from "../data/models/";
-import {UserActions,ProfileActions} from "../store/actions/";
 import {AuthenticationService} from "../services/";
 
 

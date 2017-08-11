@@ -13,7 +13,7 @@ import {Message} from "../../data/models/Profile";
 
 export class MessagesComponent {
 
-    @Input() messages:Message[];
+    @Input() messages:Message[] = [];
 
     helptext = "Check this box for recent messages from GoingOK. The messages are presented in reverse chronological order and may include general information about GoingOK, information associated with a research project you are involved in, or occasional personal reminders for you."
 
