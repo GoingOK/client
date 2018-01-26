@@ -22,7 +22,7 @@
     "@angular/router": "^4.3.4",
     "@ngrx/effects": "^4.0.2",
     "@ngrx/store": "^4.0.2",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0",
     "core-js": "^2.5.0",
     "d3": "^4.10.0",
     "dragdealer": "^0.9.9",
