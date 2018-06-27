@@ -1,3 +1,5 @@
+## THIS PROJECT IS NO LONGER ACTIVE - See [goingok](https://github.com/GoingOK/goingok) for the current full-stack version.
+
 [![Build Status](https://travis-ci.org/GoingOK/goingok-client.svg?branch=master)](https://travis-ci.org/GoingOK/goingok-client) [![Known Vulnerabilities](https://snyk.io/test/github/goingok/goingok-client/badge.svg)](https://snyk.io/test/github/goingok/goingok-client)[![https://img.shields.io/badge/license-Apache%202.0-blue.svg](https://img.shields.io/badge/license-Apache%202.0-lightgrey.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 # goingok-client
